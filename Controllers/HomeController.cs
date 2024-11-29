@@ -16,6 +16,7 @@ namespace LibraryMVCGroup.Controllers
 
         public IActionResult Index()
         {
+            //Changes to MVC CRud
             return View();
         }
 
