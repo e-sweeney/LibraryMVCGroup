@@ -5,7 +5,7 @@
 
 <h1>Available Books</h1>
 <a asp-controller="Books" asp-action="Create" class="btn btn-primary">
-    List Available Books
+    List of Available Books
 </a>
 
 <table>
@@ -23,7 +23,10 @@
                     @obj.Title
                 </td>
                 <td width="30%">
-                    @obj.LibraryID
+                    @obj.Library.Name
+                </td>
+                <td width="50%">
+                    @obj.IsAvailable
                 </td>
 
                 
