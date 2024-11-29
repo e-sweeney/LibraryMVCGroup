@@ -1,5 +1,6 @@
 ﻿using LibraryMVCGroup.DBAccess;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryMVCGroup.Controllers
 {
@@ -16,6 +17,16 @@ namespace LibraryMVCGroup.Controllers
 
             var libraryList = _dbContext.Libraries; 
             return View(libraryList);
+        }
+
+        public IActionResult CountMembersPerLibrary()
+        {
+            var countMembersPerLibrary = _dbContext.Members.GroupBy(l => l.Library.Name).Select(g => new { LibraryName = g.Key, Members = g.Count() });
+
+            ViewBag.countMembersPerLibrary = countMembersPerLibrary;
+
+
+            return View();
         }
     }
 }

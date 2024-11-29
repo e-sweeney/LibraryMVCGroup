@@ -17,8 +17,12 @@
                 <td width="30%">
                     @obj.ContactNumber
                 </td>
-               
-                
+
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Library" asp-action="CountMembersPerLibrary" asp-route-id="@obj.Id">Total Members Per Library</a>
+                    </div>
+                </td>
 
 
             </tr>
