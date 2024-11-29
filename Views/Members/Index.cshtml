@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Member>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List Members in Ascending Order</h1>
+
+<a asp-controller="Members" asp-action="Create" class="btn btn-primary">
+    List Available Books
+</a>
+
+<table>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td width="50%">
+                    @obj.Name
+                </td>
+                <td width="30%">
+                    @obj.MembershipDate
+                </td>
+                <td width="50%">
+                    @obj.LibraryID
+                </td>
+               
+
+            </tr>
+        }
+    </tbody>
+</table>

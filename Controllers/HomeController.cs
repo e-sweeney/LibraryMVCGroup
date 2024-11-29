@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using LibraryMVCGroup.DBAccess;
 using LibraryMVCGroup.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,11 +7,11 @@ namespace LibraryMVCGroup.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly LibraryDBContext _dbContext;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(LibraryDBContext libraryDBContext)
         {
-            _logger = logger;
+            _dbContext = libraryDBContext;
         }
 
         public IActionResult Index()
