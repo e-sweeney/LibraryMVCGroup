@@ -11,31 +11,39 @@
 
 		<p> List Books By Author</p>
 
-		@foreach(var book in Model)
+		@if (Model != null)
 		{
-		<div class="col-lg-3 col-md-6">
-			<div class="row p-2">
-				<div class="col-12 p-1" style="border:1px solid #008cba; border-radius:5px">
-					<div class="card">
+
+			@foreach(var book in Model)
+			{
+				<div class="col-lg-3 col-md-6">
+					<div class="row p-2">
+						<div class="col-12 p-1" style="border:1px solid #008cba; border-radius:5px">
+							<div class="card">
 						
-						<div class="pl-1">
-							<p class="card-title h5 text-primary">@book.Title</p>
+								<div class="pl-1">
+									<p class="card-title h5 text-primary">@book.Title</p>
+								</div>
+								<div class="pl-1">
+									<p>Qty Available:@book.PublishedYear</p>
+								</div>
+								<div class="pl-1">
+									<p>Supplier:@book.Author</p>
+								</div>
+							</div>
+
 						</div>
-						<div class="pl-1">
-							<p>Qty Available:@book.PublishedYear</p>
-						</div>
-						<div class="pl-1">
-							<p>Supplier:@book.Author</p>
-						</div>
+
 					</div>
-
-				</div>
-
-			</div>
 			
-			</div>
+				</div>
+			}
 		}
 
+	
+		else
+		{
+			<p> No data available yet! Please seek advice from Administrator</p>
 
+		}
 	</div>
-

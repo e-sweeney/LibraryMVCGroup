@@ -13,24 +13,32 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var obj in Model)
+        @if (Model != null)
+		{
+
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <td width="30%">
+                        @obj.Name
+                    </td>
+                    <td width="20%">
+                        @obj.ContactNumber
+                    </td>
+
+                    <td width="50%">
+                        <div class="w-135 btn-group" role="group">
+                            <a asp-controller="Library" asp-action="CountsPerLibrary" asp-route-id="@obj.Id">More Library Info</a>
+                        </div>
+                    </td>
+
+
+                </tr>
+            }
+        }
+        else
         {
-            <tr>
-                <td width="30%">
-                    @obj.Name
-                </td>
-                <td width="20%">
-                    @obj.ContactNumber
-                </td>
-
-                <td width="50%">
-                    <div class="w-135 btn-group" role="group">
-                        <a asp-controller="Library" asp-action="CountsPerLibrary" asp-route-id="@obj.Id">More Library Info</a>
-                    </div>
-                </td>
-
-
-            </tr>
+            <p> No data available yet</p>
         }
     </tbody>
 </table>

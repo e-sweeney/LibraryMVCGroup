@@ -14,15 +14,23 @@
 <table>
     
     <tbody>
-        @foreach (var group in Model)
+        @if (Model != null)
+		{
+
+            @foreach (var group in Model)
+            {
+                <h2>@group.LibraryName</h2>
+                <ul>
+                    @foreach (var bookTitle in group.BookTitles)
+                    {
+                        <li>@bookTitle</li>
+                    }
+                </ul>
+            }
+        }
+        else
         {
-            <h2>@group.LibraryName</h2>
-            <ul>
-                @foreach (var bookTitle in group.BookTitles)
-                {
-                    <li>@bookTitle</li>
-                }
-            </ul>
+            <partial> No data available yet.  Please seek advice from Administrator</partial>
         }
     </tbody>
 </table>
