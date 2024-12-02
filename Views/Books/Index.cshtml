@@ -1,36 +1,27 @@
-﻿@model IEnumerable<Book>
+﻿@using LibraryMVCGroup.ViewModels
+@model IEnumerable<LibraryBooksViewModel>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Book Index By Library";
 }
 
-<h1>Available Books</h1>
-<a asp-controller="Books" asp-action="Create" class="btn btn-primary">
-    List of Available Books
-</a>
+<h1>Available Books Per Library</h1>
+<p></p>
+<p></p>
+<p></p>
+<br/>
+
 
 <table>
     <tbody>
-        @foreach (var obj in Model)
+        @foreach (var group in Model)
         {
-            <tr>
-                <td width="50%">
-                    @obj.Title
-                </td>
-                <td width="30%">
-                    @obj.Author
-                </td>
-                <td width="50%">
-                    @obj.Title
-                </td>
-                <td width="30%">
-                    @obj.Library.Name
-                </td>
-                <td width="50%">
-                    @obj.IsAvailable
-                </td>
-
-                
-            </tr>
+            <h2>@group.LibraryName</h2>
+            <ul>
+                @foreach (var bookTitle in group.BookTitles)
+                {
+                    <li>@bookTitle</li>
+                }
+            </ul>
         }
     </tbody>
 </table>
