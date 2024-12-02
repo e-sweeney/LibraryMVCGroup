@@ -8,6 +8,7 @@
         public string? ContactNumber { get; set; }
 
         public List<Book>? Books { get; set; }
+        public List<Member>? Members { get; set; }
 
     }
 }

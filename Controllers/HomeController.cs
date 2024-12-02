@@ -2,6 +2,7 @@ using System.Diagnostics;
 using LibraryMVCGroup.DBAccess;
 using LibraryMVCGroup.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryMVCGroup.Controllers
 {
@@ -14,10 +15,15 @@ namespace LibraryMVCGroup.Controllers
             _dbContext = libraryDBContext;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string searchString)
         {
-            //Changes to MVC CRud
-            return View();
+            IEnumerable<Book> bookList = _dbContext.Books.Select(p => p);
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                bookList = _dbContext.Books.Where(s => s.Author.Contains(searchString) && s.Author!=null);
+            }
+            return View(bookList);
+            
         }
 
         public IActionResult Privacy()

@@ -1,8 +1,41 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<Book>
+	<div class="row pb-3">
+		<p>
+		<form class="d-flex" class="col-3">
+			<input type="text" placeholder="Search Products by Author Name" class="form-control me-sm-2" name="SearchString" />
+			<input type="submit" value="Search" class="btn btn-outline-primary form-control" style="width:200px" />
+			<a asp-route-Books="" asp-route-SearchString="" class="btn btn-outline-secondary"> Clear</a>
+		</form>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+		</p>
+
+		<p> List Books By Author</p>
+
+		@foreach(var book in Model)
+		{
+		<div class="col-lg-3 col-md-6">
+			<div class="row p-2">
+				<div class="col-12 p-1" style="border:1px solid #008cba; border-radius:5px">
+					<div class="card">
+						
+						<div class="pl-1">
+							<p class="card-title h5 text-primary">@book.Title</p>
+						</div>
+						<div class="pl-1">
+							<p>Qty Available:@book.PublishedYear</p>
+						</div>
+						<div class="pl-1">
+							<p>Supplier:@book.Author</p>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			
+			</div>
+		}
+
+
+	</div>
+

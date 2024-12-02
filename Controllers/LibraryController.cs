@@ -1,4 +1,5 @@
 ﻿using LibraryMVCGroup.DBAccess;
+using LibraryMVCGroup.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,14 +20,23 @@ namespace LibraryMVCGroup.Controllers
             return View(libraryList);
         }
 
-        public IActionResult CountMembersPerLibrary()
+        public IActionResult CountsPerLibrary()
         {
-            var countMembersPerLibrary = _dbContext.Members.GroupBy(l => l.Library.Name).Select(g => new { LibraryName = g.Key, Members = g.Count() });
+            var countsPerLibrary = _dbContext.Libraries.Select(l => new LibraryCountViewModel
 
-            ViewBag.countMembersPerLibrary = countMembersPerLibrary;
+            {
+                LibraryName = l.Name,
+                memberCount = l.Members.Count(),
+                bookCount = l.Books.Count() 
+            });
+        
+            
 
 
-            return View();
+            return View(countsPerLibrary);
         }
+
+
+
     }
 }

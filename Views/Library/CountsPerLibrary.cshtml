@@ -1,0 +1,49 @@
+﻿@using LibraryMVCGroup.ViewModels
+@model IEnumerable<LibraryCountViewModel>
+<h1> More Library Info</h1>
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+ @if (Model != null)
+ {
+    <table>
+        <thead>
+            <tr>
+                <th>Library Name</th>
+                <th>Number of Members</th>
+                <th>Number of Books</th>
+            </tr>
+        </thead>
+        <tbody>
+      
+            @foreach (var obj in @Model)
+            {
+            <tr>
+                <td width="50%">
+                    @obj.LibraryName
+                </td>
+                <td width="30%">
+                    @obj.memberCount
+                </td>
+
+                <td width="30%">
+                   @obj.bookCount
+                </td>
+
+
+            </tr>
+            }
+        </tbody>
+    </table>
+ }
+ else
+ {
+   <p> No data found</p>
+ }
+  
+ 
+
+

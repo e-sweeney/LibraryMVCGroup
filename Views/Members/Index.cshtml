@@ -3,13 +3,20 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>List Members in Ascending Order</h1>
+<h1>List Members in Descending Order of Membership Date Order</h1>
 
-<a asp-controller="Members" asp-action="Create" class="btn btn-primary">
-    List Available Books
-</a>
+<br/>
+<br/>
+<br/>
 
 <table>
+    <thead>
+        <tr>
+            <th>Member Name</th>
+            <th>Date of Membership</th>
+            <th>Library Name</th>
+        </tr>
+    </thead>
     <tbody>
         @foreach (var obj in Model)
         {
@@ -21,7 +28,7 @@
                     @obj.MembershipDate
                 </td>
                 <td width="50%">
-                    @obj.LibraryID
+                    @obj.Library.Name
                 </td>
                
 

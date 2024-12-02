@@ -1,5 +1,6 @@
 ﻿using LibraryMVCGroup.DBAccess;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace LibraryMVCGroup.Controllers
 {
@@ -13,7 +14,7 @@ namespace LibraryMVCGroup.Controllers
         }
         public IActionResult Index()
         {
-            var memberList = _dbContext.Members;
+            var memberList = _dbContext.Members.OrderByDescending(d=>d.MembershipDate).Include(l=>l.Library);
             return View(memberList);
         }
     }
