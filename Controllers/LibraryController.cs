@@ -22,18 +22,8 @@ namespace LibraryMVCGroup.Controllers
 
         public IActionResult CountsPerLibrary()
         {
-            var countsPerLibrary = _dbContext.Libraries.Select(l => new LibraryCountViewModel
-
-            {
-                LibraryName = l.Name,
-                memberCount = l.Members.Count(),
-                bookCount = l.Books.Count() 
-            });
-        
-            
-
-
-            return View(countsPerLibrary);
+                  
+             return View();
         }
 
 

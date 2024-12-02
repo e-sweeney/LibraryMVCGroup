@@ -14,8 +14,8 @@ namespace LibraryMVCGroup.Controllers
         }
         public IActionResult Index()
         {
-            var memberList = _dbContext.Members.OrderByDescending(d=>d.MembershipDate).Include(l=>l.Library);
-            return View(memberList);
+           
+            return View();
         }
     }
 }

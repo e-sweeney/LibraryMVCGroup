@@ -15,14 +15,10 @@ namespace LibraryMVCGroup.Controllers
             _dbContext = libraryDBContext;
         }
 
-        public IActionResult Index(string searchString)
+        public IActionResult Index()
         {
-            IEnumerable<Book> bookList = _dbContext.Books.Select(p => p);
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                bookList = _dbContext.Books.Where(s => s.Author.Contains(searchString) && s.Author!=null);
-            }
-            return View(bookList);
+           
+            return View();
             
         }
 
