@@ -1,14 +1,14 @@
 ﻿@using LibraryMVCGroup.ViewModels
-@model IEnumerable<LibraryCountViewModel>
+@model LibraryCountViewModel
 <h1> More Library Info</h1>
 
-<br/>
-<br/>
-<br/>
-<br/>
+<br />
+<br />
+<br />
+<br />
 
- @if (Model != null)
- {
+@if (Model != null)
+{
     <table>
         <thead>
             <tr>
@@ -18,32 +18,31 @@
             </tr>
         </thead>
         <tbody>
-      
-            @foreach (var obj in @Model)
-            {
+
+
             <tr>
                 <td width="50%">
-                    @obj.LibraryName
+                    @Model.LibraryName
                 </td>
                 <td width="30%">
-                    @obj.memberCount
+                    @Model.memberCount
                 </td>
 
                 <td width="30%">
-                   @obj.bookCount
+                    @Model.bookCount
                 </td>
 
 
             </tr>
-            }
+
         </tbody>
     </table>
- }
- else
- {
-   <p> No data found</p>
- }
-  
- 
+}
+else
+{
+    <p> No data found</p>
+}
+
+
 
 
