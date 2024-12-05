@@ -17,10 +17,17 @@ namespace LibraryMVCGroup.Controllers
         }
         public IActionResult Index()
         {
-              
-          
+            var availablebooks = _dbContext.Books.Where(b => b.IsAvailable == true & b != null).Include(b => b.Library).GroupBy(b => b.Library).Select(g => new LibraryBooksViewModel
+            {
+                LibraryName = g.Key.Name,
+                BookTitles = g.Select(b => b.Title)
 
-            return View();
+
+            });
+            return View(availablebooks);
+
+
+            
         }
 
         
